@@ -1,15 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SetUp the connectivity with GitHub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <div class="demo">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum repellendus amet veritatis omnis
-        sit magnam tempora autem est dolor pariatur corporis quisquam, sed porro eaque ea quia iure enim iste!</div>
+
+
+    <div class="image">
+        <img class="img" src="../image/mount.gif" alt="Mountain">
+        <nav class="navbarmanual navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <main class="container">
+            <center style="font-weight: 800; size: 30px;">LOGIN</center>
+            <input style="background-color: transparent;" class="name" placeholder="Username">
+            <input style="background-color: transparent;" class="password" placeholder="Password">
+            <p id="passwordFailure"></p>
+            <p id="passwordSuccess"></p>
+            <a target="_blank">
+                <button id="submit" style="border: 2px solid;
+            padding: 0px 10px;
+            border-radius: 5px;">Login</button>
+            </a>
+            <div>Dont have a account.Register now</div>
+        </main>
+    </div>
+
+
+</body>
+<style>
+    body {}
+
+    .navbarmanual {
+        color: black;
+        /* background: url("../image/mountain.gif");
+        background-repeat: no-repeat; */
+        border-color: transparent;
+    }
+
+    .image>img {
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        position: absolute;
+        border: 2px solid black;
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: auto;
+    }
+
+    .container {
+        height: 65vh;
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid black;
+        background-color: gold;
+
+
+    }
+</style>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+<script>
+
+    document.getElementById("submit").addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Retrieve input values
+        let user = document.querySelector(".name").value;
+        let password = document.querySelector(".password").value;
+
+        // Define valid credentials
+        let validUsers = ["hammad", "Hammad", "HAMMAD"];
+        let validPassword = "12345"; // Password should be a string for comparison
+
+        // Input validation
+        if (user === "" || password === "") {
+            let result = document.getElementById("passwordFailure");
+            result.innerText = "Please fill out both username and password.";
+            result.style.color = "red";
+            return; // Exit to prevent further checks
+        }
+
+        // Check credentials
+        if (validUsers.includes(user) && password === validPassword) {
+            document.getElementById("passwordFailure").innerText = ""; // Clear error message
+            document.getElementById("passwordSuccess").innerText = "Login Successful!";
+            document.getElementById("passwordSuccess").style.color = "green";
+
+            // Redirect to another page after 2 seconds
+            setTimeout(() => {
+                window.location.href = "./demo.html"; // Replace 'success.html' with your desired page URL
+            }, 2000); // 2000 ms = 2 seconds
+        } else {
+            let result = document.getElementById("passwordFailure");
+            result.innerText = "Invalid username or password.";
+            result.style.color = "red";
+        }
+    });
+
+</script>
 </body>
 
 </html>
