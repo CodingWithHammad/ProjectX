@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/index.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,61 +16,21 @@
 
 
     <div class="image">
-        <img class="img" src="../image/mount.gif" alt="Mountain">
-        <nav class="navbarmanual navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-
-
-
+        <img class="img" src="../image/mount.jpg" alt="Mountain">
         <main class="container">
-            <center style="font-weight: 800; size: 30px;">LOGIN</center>
-            <input style="background-color: transparent;" class="name" placeholder="Username">
-            <input style="background-color: transparent;" class="password" placeholder="Password">
-            <p id="passwordFailure"></p>
-            <p id="passwordSuccess"></p>
-            <a target="_blank">
-                <button id="submit" style="border: 2px solid;
-            padding: 0px 10px;
-            border-radius: 5px;">Login</button>
+            <div class="login">
+                <center style="font-weight: 800; size: 30px;">LOGIN</center>
+            </div>
+            <div class="username">
+                <input style="background-color: transparent;" class="name" placeholder="Username">
+            </div>
+            <div class="password">
+                <input style="background-color: transparent;" class="password" placeholder="Password">
+                <p id="passwordFailure"></p>
+                <p id="passwordSuccess"></p>
+            </div>
+            <a href="./demo.html" target="_blank">
+                <button class="enter" id="submit">Login</button>
             </a>
             <div>Dont have a account.Register now</div>
         </main>
@@ -77,13 +39,44 @@
 
 </body>
 <style>
-    body {}
+    * {
+        padding: 0%;
+        margin: 0%;
+    }
 
-    .navbarmanual {
+    /* 
+.image {
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+} */
+    .username {
+        border-radius: 25px;
+
+        margin-bottom: 20px;
+        /* border: 1px solid black; */
+
+    }
+
+    .login {
         color: black;
-        /* background: url("../image/mountain.gif");
-        background-repeat: no-repeat; */
-        border-color: transparent;
+        font-size: x-large;
+        margin-bottom: 100px;
+
+    }
+
+    .enter {
+        height: 6vh;
+        width: 6vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        border: 2px solid black;
+        padding: 10px 10px;
+        font-weight: 400;
+        border-radius: 15px;
+        background-color: transparent;
     }
 
     .image>img {
@@ -91,7 +84,7 @@
         height: 100vh;
         z-index: -1;
         position: absolute;
-        border: 2px solid black;
+        /* border: 2px solid black; */
         object-fit: cover;
         display: flex;
         justify-content: center;
@@ -99,26 +92,27 @@
         padding: auto;
     }
 
+    /* .container{
+    height: 20vh;
+    width: 20vw;
+    background-color: burlywood;
+    border: 2px solid black;
+    color: blueviolet;
+} */
     .container {
-        height: 65vh;
-        width: 25vw;
+        height: 450px;
+        width: 300px;
+        border: 2px solid black;
+        border-radius: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 3px solid black;
-        background-color: gold;
-
-
+        z-index: 0;
+        top: 60px;
+        position: relative;
     }
 </style>
-
-</html>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-
 <script>
 
     document.getElementById("submit").addEventListener("click", (e) => {
@@ -156,8 +150,10 @@
             result.style.color = "red";
         }
     });
-
 </script>
-</body>
 
 </html>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script> -->
