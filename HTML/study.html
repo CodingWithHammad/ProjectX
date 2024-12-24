@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div class="full">hhbjhgddj</div>
+    <div class="container">
+        <div class="circle" style="--i:0;"></div>
+        <div class="circle" style="--i:1;"></div>
+        <div class="circle" style="--i:2;"></div>
+        <div class="circle" style="--i:3;"></div>
+        <div class="circle" style="--i:4;"></div>
+        <div class="circle" style="--i:5;"></div>
+        <div class="circle" style="--i:6;"></div>
+        <div class="circle" style="--i:7;"></div>
+        <div class="circle" style="--i:8;"></div>
+        <div class="circle" style="--i:9;"></div>
+        <div class="circle" style="--i:10;"></div>
+        <div class="circle" style="--i:11;"></div>
+        <div class="circle" style="--i:12;"></div>
+        <div class="circle" style="--i:13;"></div>
+        <div class="circle" style="--i:14;"></div>
+        <div class="circle" style="--i:15;"></div>
+        <div class="circle" style="--i:16;"></div>
+        <div class="circle" style="--i:17;"></div>
+        <div class="circle" style="--i:18;"></div>
+        <div class="circle" style="--i:19;"></div>
+        <div class="circle" style="--i:20;"></div>
+        <div class="circle" style="--i:21;"></div>
+        <div class="circle" style="--i:22;"></div>
+        <div class="circle" style="--i:23;"></div>
+        <div class="circle" style="--i:24;"></div>
+        <div class="circle" style="--i:25;"></div>
+        <div class="circle" style="--i:26;"></div>
+        <div class="circle" style="--i:27;"></div>
+        <div class="circle" style="--i:28;"></div>
+        <div class="circle" style="--i:29;"></div>
+        <div class="circle" style="--i:30;"></div>
+        <div class="circle" style="--i:31;"></div>
+        <div class="circle" style="--i:32;"></div>
+        <div class="circle" style="--i:31;"></div>
+        <div class="circle" style="--i:32;"></div>
+        <div class="circle" style="--i:33;"></div>
+        <div class="circle" style="--i:34;"></div>
+        <div class="circle" style="--i:35;"></div>
+        <div class="circle" style="--i:36;"></div>
+        
+    </div>
+    
+    </body>
+    </html>
+    <style>
+        .full{
+            border: 2px solid orangered;
+            height: 50vh;
+            width: 50vw;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color: aqua;
+        }
+.container{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+.container{
+    position: absolute;
+    top: 20%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle{
+    position: absolute;
+    background: transparent;
+    width: calc(var(--i) * 2.5vmin);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid rgb(221, 44, 127);
+    border-top: 2px solid rgb(68, 43, 191);
+    border-bottom: 2px solid rgb(68, 43, 191);
+    border-right:2px solid rgb(68, 43, 191);
+    border-left: 2px solid rgb(68,43,191) ;
+    transform-style:preserve-3d ;
+    transform:rotateX(70deg) translateZ(50px) ;
+    animation: animate 3s ease-in-out calc(var(--i) * 0.10s) infinite;
+    box-shadow: 0 0 15px rgb(4, 18, 146);
+}
+@keyframes animate {
+    0%,
+    100%{
+        transform: rotateX(70deg) translateZ(50px) translateY(0);
+        filter: hue-rotate(0);
+    }
+    50%{
+        transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
+        filter: hue-rotate(360);
+    }
+    
+}
+
+</style>
+
+    
+</body>
+</html>

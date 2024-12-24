@@ -9,8 +9,7 @@
 <body>
     <header>
         <nav class="nav">
-            <div>
-                <img class="logo logoHover" src="assets/img/logo.png" alt="Hammad Logo">
+            <div>......
             </div>
             <ul class="ul">
                 <li><a href="home.html">Home</a></li>
@@ -21,8 +20,80 @@
             </ul>
         </nav>
     </header>
-    <h2>
-        Welcome To Our Website:
-    </h2>
+    <main class="section">
+        <div class="first">
+          <a href="./password.html">PASSWORD MANAGER</a>
+        </div>
+        <div class="second"> <a href="./games.html">GAMES SECTION</a> </div>
+        <div class="third"><a href="./study.html">STUDY</a></div>
+    </main>
+   
 </body>
+ <style>
+    body{
+        background: orange;
+        /* color: orange; */
+       }
+    .section{
+        display: flex;
+        height: 80vh;
+        border: 3px solid orange;
+        border-radius: 15px;
+        margin-top: 8px;
+        padding:30px;
+        column-gap: 2vw;
+        /* justify-content: space-aroundjus ; */
+    }
+    .first{
+        border: 2px solid orange;
+        border-radius:40px;
+        height:70vh;
+        width: 30vw;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background:#100720;
+        color:orange;
+        justify-content:center;
+        font-weight: 800;
+        /* padding-left: 20px; */
+        font-size: xx-large;
+    }
+    .second{
+        border: 2px solid orange;
+        border-radius:40px;
+        height:70vh;
+        width: 30vw;
+        background:#100720;
+        color:orange;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        text-align: center;
+        font-size: xx-large;
+    }
+    .third{
+        border: 2px solid orange;
+        border-radius:40px;
+        height:70vh;
+        width: 30vw;
+        background:#100720;
+        color:orange;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        text-align: center;
+        font-size: xx-large;
+    }
+    a{
+        color: orange;
+        text-decoration: none;
+        /* text-decoration:3px white underline; */
+    }
+    a:hover{
+        color: aliceblue;
+    }
+</style> 
 </html>
