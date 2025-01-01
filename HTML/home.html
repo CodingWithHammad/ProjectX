@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/utility.css">
 </head>
+
 <body>
+    <div class="container">
+        <div class="circle" style="--i:0;"></div>
+        <div class="circle" style="--i:1;"></div>
+        <div class="circle" style="--i:2;"></div>
+        <div class="circle" style="--i:3;"></div>
+        <div class="circle" style="--i:4;"></div>
+        <div class="circle" style="--i:5;"></div>
+        <div class="circle" style="--i:6;"></div>
+        <div class="circle" style="--i:7;"></div>
+        <div class="circle" style="--i:8;"></div>
+        <div class="circle" style="--i:9;"></div>
+        <div class="circle" style="--i:10;"></div>
+        <div class="circle" style="--i:11;"></div>
+        <div class="circle" style="--i:12;"></div>
+        <div class="circle" style="--i:13;"></div>
+        <div class="circle" style="--i:14;"></div>
+        <div class="circle" style="--i:15;"></div>
+        <div class="circle" style="--i:16;"></div>
+        <div class="circle" style="--i:17;"></div>
+        <div class="circle" style="--i:18;"></div>
+        <div class="circle" style="--i:19;"></div>
+        <div class="circle" style="--i:20;"></div>
+        <div class="circle" style="--i:21;"></div>
+        <div class="circle" style="--i:22;"></div>
+        <div class="circle" style="--i:23;"></div>
+        <div class="circle" style="--i:24;"></div>
+        <div class="circle" style="--i:25;"></div>
+        <div class="circle" style="--i:26;"></div>
+        <div class="circle" style="--i:27;"></div>
+        <div class="circle" style="--i:28;"></div>
+        <div class="circle" style="--i:29;"></div>
+        <div class="circle" style="--i:30;"></div>
+        <div class="circle" style="--i:31;"></div>
+        <div class="circle" style="--i:32;"></div>
+        <div class="circle" style="--i:31;"></div>
+        <div class="circle" style="--i:32;"></div>
+        <div class="circle" style="--i:33;"></div>
+        <div class="circle" style="--i:34;"></div>
+        <div class="circle" style="--i:35;"></div>
+        <div class="circle" style="--i:36;"></div>
+
+    </div>
     <header>
         <nav class="nav">
-            <div>......
-            </div>
+            <div class="">....</div>
             <ul class="ul">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -21,79 +64,124 @@
         </nav>
     </header>
     <main class="section">
-        <div class="first">
-          <a href="./password.html">PASSWORD MANAGER</a>
-        </div>
         <div class="second"> <a href="./games.html">GAMES SECTION</a> </div>
-        <div class="third"><a href="./study.html">STUDY</a></div>
     </main>
-   
+
 </body>
- <style>
-    body{
-        background: orange;
-        /* color: orange; */
-       }
-    .section{
+<style>
+    header{
+        border:2px solid rgb(8, 8, 8);
+        border-radius: 20px;
+    }
+    
+
+    .container {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        z-index: -1;
         display: flex;
-        height: 80vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        /* height: 100vh;
+         display: flex; 
+        justify-content: center;
+        align-items: center; */
+        background: #000;
+        overflow: hidden;
+    }
+
+    .container {
+        position: absolute;
+        /* border: 2px solid red; */
+        top: 20%;
+        left:50%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .circle {
+        position: absolute;
+        background: transparent;
+        width: calc(var(--i) * 2.5vmin);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 3px solid rgb(221, 44, 127);
+        border-top: 2px solid rgb(68, 43, 191);
+        border-bottom: 2px solid rgb(68, 43, 191);
+        border-right: 2px solid rgb(68, 43, 191);
+        border-left: 2px solid rgb(68, 43, 191);
+        transform-style: preserve-3d;
+        transform: rotateX(70deg) translateZ(50px);
+        animation: animate 3s ease-in-out calc(var(--i) * 0.10s) infinite;
+        box-shadow: 0 0 15px rgb(4, 18, 146);
+    }
+
+    @keyframes animate {
+
+        0%,
+        100% {
+            transform: rotateX(70deg) translateZ(50px) translateY(0);
+            filter: hue-rotate(0);
+        }
+
+        50% {
+            transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
+            filter: hue-rotate(360);
+        }
+
+    }
+
+   
+
+    .section {
+        display: flex;
+        height: 77.4vh;
         border: 3px solid orange;
         border-radius: 15px;
         margin-top: 8px;
-        padding:30px;
+        margin: 5px;
+        padding: 30px;
         column-gap: 2vw;
         /* justify-content: space-aroundjus ; */
     }
-    .first{
+
+    .second {
         border: 2px solid orange;
-        border-radius:40px;
-        height:70vh;
-        width: 30vw;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        background:#100720;
-        color:orange;
-        justify-content:center;
-        font-weight: 800;
-        /* padding-left: 20px; */
-        font-size: xx-large;
-    }
-    .second{
-        border: 2px solid orange;
-        border-radius:40px;
-        height:70vh;
-        width: 30vw;
-        background:#100720;
-        color:orange;
+        border-radius: 40px;
+        height: 70vh;
+        width: 98vw;
+        background: transparent;
+        color: orange;
         font-weight: 800;
         display: flex;
         align-items: center;
-        justify-content:center;
+        justify-content: center;
         text-align: center;
         font-size: xx-large;
     }
-    .third{
-        border: 2px solid orange;
-        border-radius:40px;
-        height:70vh;
-        width: 30vw;
-        background:#100720;
-        color:orange;
-        font-weight: 800;
-        display: flex;
-        align-items: center;
-        justify-content:center;
-        text-align: center;
-        font-size: xx-large;
+    nav{
+        /* position: absolute; */
+        /* padding-left: 60%; */
+        /* left:50px */
     }
-    a{
+
+ 
+
+    a {
         color: orange;
         text-decoration: none;
         /* text-decoration:3px white underline; */
     }
-    a:hover{
+
+    a:hover {
         color: aliceblue;
     }
-</style> 
+</style>
+
 </html>

@@ -7,16 +7,22 @@
 }
 
 .nav {
-    width: 98.6vw;
+    width: 98.4vw;
+    margin-top: 5px;
     height: 10vh;
     display: flex;
+    border: 3px solid orange;
+    border-radius: 20px;
     justify-content: space-between;
     /* margin: 0px 5vw; */
     align-items: center;
+    /* margin-right: 40px; */
     /* margin-bottom: 20px; */
-    background-color: orange;
-    color: white;
-    padding-right: 20px;
+    background-color: rgb(20, 20, 19);
+    color: orange;
+    font-weight: 600;
+    padding-right: 15px;
+    /* padding-right: 100px; */
 }
 
 .ul {
@@ -26,7 +32,7 @@
     /* color:#9c33ff; */
 }
 .ul>li>a{
-    color: white;
+    color: orange;
     /* color: #9c33ff; */
 }
 .ul li {
@@ -50,9 +56,9 @@
     /* color:#0d00f2; */
 }
 
-.ul li a:hover {color:#030303;
+.ul li a:hover {color:white;
 }
 
 
-.ul li a {color:white;
+.ul li a {color:orange;
 }
