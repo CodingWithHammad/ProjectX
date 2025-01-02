@@ -62,9 +62,12 @@
         <div style="color: white;" class="star"></div>
     </div>
     <img class="image" src="../image/beautiful.jpeg" alt="">
+    <div style="display: flex;justify-content: center;padding:auto;filter: blur(3px);">
+        <div style="color:orange;font-size: 155px;z-index: 1;position: absolute;top: 10px;">GAMER  ZONE</div>
+    </div>
     <div class="container">
         <form class="form" action="">
-            <h1>LOGIN</h1>
+            <h1 style="color: orange;">LOGIN</h1>
             <div class="input-box">
                 <input type="text" placeholder="Username" class="name" required>
                 <box-icon type='solid' name='user'></box-icon>
@@ -76,8 +79,8 @@
                 <p id="passwordSuccess"></p>
             </div>
             <div class="remember-forgot">
-                <label style="color: red;"> <input type="checkbox"> Remember me </label>
-                <a style="color: red;" href="#">Forgot Password</a>
+                <label style="color: rgb(9, 9, 9);font-weight: 800;"> <input type="checkbox"> Remember me </label>
+                <a style="color: rgb(0, 0, 0);font-weight: 800;" href="#">Forgot Password</a>
             </div>
             <div class="login">
                 <a href="./home.html" target="_blank">
@@ -85,7 +88,7 @@
             </div>
             </a>
             <div class="register-link">
-                <p style="color: red;">Dont have an account? <a href="# "> Register</a></p>
+                <p style="color: orange;">Dont have an account? <a href="# "> Register</a></p>
             </div>
         </form>
     </div>
@@ -132,6 +135,13 @@
 </script>
 
 <style>
+    .btn {
+        color:black;
+        font-size: 24px;
+    }
+    .btn:hover{
+        color: orange;
+    }
     .stars {
         position: fixed;
         z-index: 2;
@@ -141,9 +151,12 @@
         height: 120%;
         transform: rotate(-45deg);
     }
+    img{
+        /* filter: sepia(80%); */
+    }
 
     .star {
-        z-index: 0;
+        z-index: 1;
         --star-color: var(--primary-color);
         --star-tail-length: 6em;
         --star-tail-height: 2px;
