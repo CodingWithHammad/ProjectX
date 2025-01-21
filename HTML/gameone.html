@@ -6,19 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/rock.css">
+    <script src="../JS/rock.js"></script>
 </head>
 
 <body>
     <h1>Rock Paper Scissor</h1>
-    <div class="choice" id="rock">
-        <img src="" alt="">
-    </div>
-    <div class="choice" id="paper">
-        <img src="" alt="">
-    </div>
-    <div class="choice" id="scissors">
-        <img src="" alt="">
-    </div>
+     <div class="choices">
+        <div class="choice" id="rock">
+            <img src="../image/rock-removebg-preview (1).png" alt="">
+        </div>
+        <div class="choice" id="paper">
+            <img src="../image/paper-removebg-preview.png" alt="">
+        </div>
+        <div class="choice" id="scissors">
+            <img src="../image/SCISSOR-removebg-preview.png" alt="">
+        </div>
+     </div>
+
     <div class="score-board">
         <div class="score">
             <p id="user-score">0</p>
@@ -28,6 +32,9 @@
             <p id="comp-score">0</p>
             <p>comp</p>
         </div>
+    </div>
+    <div class="msg-container">
+        <p id="msg">Play your move</p>
     </div>
 </body>
 
