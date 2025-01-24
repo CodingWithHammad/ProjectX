@@ -1,23 +1,184 @@
-const playBoard=document.querySelector(".play-board");
+// <!DOCTYPE html>
+// <html lang="en">
 
-let foodX =13, foodY=10;
-let snakeX=5, snakeY=10;
-let velocityX=0 , velocityY=0;
- 
-const changeFoodPosition = () =>{
-    foodX=Math.floor(Math.random()*30)+1;
-    foodY=Math.floor(Math.random()*30)+1;
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Snake Game</title>
+//     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+// </head>
 
-}
-const changeDirection=(e)=>{
-    console.log(e);
-}
-const initGame=()=>{
-    let htmlMarkup=`<div class="food" style="grid-area: ${foodY} / ${foodX} "></div>`;
-    htmlMarkup=`<div class="food" style="grid-area: ${snakeY} / ${snakeX} "></div>`;
-    playButton.innerHTML=htmlMarkup;
+// <body>
+//     <div class="wrapper">
+//         <div class="game-details">
+//             <span class="score">Score: 0</span>
+//             <span class="high-score">High Score: 0</span>
+//         </div>
+//         <div class="play-board">
+//             <div class="food" style="grid-area: 8/23"></div>
+//             <div class="head" style="grid-area: 10/5"></div></div>
+//         <div class="controls">
+//             <i data-key="ArrowLeft" class="fas fa-arrow-left"></i>
+//             <i data-key="ArrowUp" class="fas fa-arrow-up"></i>
+//             <i data-key="ArrowRight" class="fas fa-arrow-right"></i>
+//             <i data-key="ArrowDown" class="fas fa-arrow-down"></i>
+//         </div>
+//     </div>
 
-}
-changeFoodPosition();
-initGame();
-document.addEventListener("keydown",changeDirection);
+//     <style>
+        
+//         * {
+//             margin: 0;
+//             padding: 0;
+//             box-sizing: border-box;
+//         }
+
+//         body {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             min-height: 100vh;
+//             background: #E3F2FD;
+//         }
+
+//         .wrapper {
+//             width: 65vmin;
+//             height: 70vmin;
+//             display: flex;
+//             flex-direction: column;
+//             overflow: hidden;
+//             background: #293447;
+//             border-radius: 5px;
+//         }
+
+//         .game-details {
+//             color: #88c6dc;
+//             font-size: 1.2rem;
+//             font-weight: 500;
+//             padding: 20px 27px;
+//             display: flex;
+//             justify-content: space-between;
+//         }
+
+//         .play-board {
+//             flex-grow: 1;
+//             background: #212837;
+//             display: grid;
+//             grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+//         }
+
+//         .play-board .food {
+//             background: blue;
+//         }
+
+//         .play-board .head {
+//             background: #ff00ff;
+//         }
+
+//         .controls {
+//             display: flex;
+//             justify-content: space-between;
+//             padding: 10px;
+//             background: #293447;
+//         }
+
+//         .controls i {
+//             font-size: 24px;
+//             color: #88c6dc;
+//             cursor: pointer;
+//         }
+//     </style>
+
+//     <script>
+//         const playBoard = document.querySelector(".play-board");
+//         const scoreElement = document.querySelector(".score");
+//         const highScoreElement = document.querySelector(".high-score");
+//         const controls = document.querySelectorAll(".controls i");
+
+//         let gameOver = false;
+//         let foodX, foodY;
+//         let snakeX = 15, snakeY = 15;
+//         let velocityX = 0, velocityY = 0;
+//         let snakeBody = [];
+//         let setIntervalId;
+//         let score = 0;
+
+//         let highScore = localStorage.getItem("high-score") || 0;
+//         highScoreElement.innerText = `High Score: ${highScore}`;
+
+//         const changeFoodPosition = () => {
+//             do {
+//                 foodX = Math.floor(Math.random() * 30) + 1;
+//                 foodY = Math.floor(Math.random() * 30) + 1;
+//             } while (snakeBody.some(segment => segment[0] === foodX && segment[1] === foodY));
+//         };
+
+//         const handleGameOver = () => {
+//             clearInterval(setIntervalId);
+//             alert("Game Over! Press OK to replay.");
+//             location.reload();
+//         };
+
+//         const changeDirection = e => {
+//             if (e.key === "ArrowUp" && velocityY !== 1) {
+//                 velocityX = 0; velocityY = -1;
+//             } else if (e.key === "ArrowDown" && velocityY !== -1) {
+//                 velocityX = 0; velocityY = 1;
+//             } else if (e.key === "ArrowLeft" && velocityX !== 1) {
+//                 velocityX = -1; velocityY = 0;
+//             } else if (e.key === "ArrowRight" && velocityX !== -1) {
+//                 velocityX = 1; velocityY = 0;
+//             }
+//         };
+
+//         controls.forEach(key => {
+//             key.addEventListener("click", () => changeDirection({ key: key.dataset.key }));
+//         });
+
+//         const initGame = () => {
+//             if (gameOver) return handleGameOver();
+
+//             let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX};"></div>`;
+
+//             if (snakeX === foodX && snakeY === foodY) {
+//                 changeFoodPosition();
+//                 snakeBody.push([foodX, foodY]);
+//                 score++;
+//                 highScore = score > highScore ? score : highScore;
+//                 localStorage.setItem("high-score", highScore);
+//                 scoreElement.innerText = `Score: ${score}`;
+//                 highScoreElement.innerText = `High Score: ${highScore}`;
+//             }
+
+//             for (let i = snakeBody.length - 1; i > 0; i--) {
+//                 snakeBody[i] = snakeBody[i - 1];
+//             }
+
+//             if (snakeBody.length) {
+//                 snakeBody[0] = [snakeX, snakeY];
+//             }
+
+//             snakeX += velocityX;
+//             snakeY += velocityY;
+
+//             if (snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {
+//                 gameOver = true;
+//             }
+
+//             snakeBody.forEach((segment, index) => {
+//                 htmlMarkup += `<div class="head" style="grid-area: ${segment[1]} / ${segment[0]};"></div>`;
+//                 if (index !== 0 && segment[0] === snakeX && segment[1] === snakeY) {
+//                     gameOver = true;
+//                 }
+//             });
+
+//             playBoard.innerHTML = htmlMarkup;
+//         };
+
+//         changeFoodPosition();
+//         setIntervalId = setInterval(initGame, 150);
+//         document.addEventListener("keydown", changeDirection);
+//     </script>
+// </body>
+
+// </html>
