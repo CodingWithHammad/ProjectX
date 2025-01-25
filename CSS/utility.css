@@ -5,7 +5,18 @@
     font-family: "Poppins", sans-serif;
     background-repeat: no-repeat;
 }
+.logo {
+    width: 100px;
+    height: 70px;
+    filter: drop-shadow(0 0 7px orange);
 
+}
+
+
+.logo:hover {
+    border-radius: 100%;
+
+}
 .nav {
     width: 98.4vw;
     margin-top: 5px;
