@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Solar System — Sun • Earth • Moon</title>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    :root{
+      --size: 600px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(closest-corner at 20% 10%, #071029 0%, #000814 40%, #000010 100%);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .universe{
+      position:relative;
+      width:var(--size);
+      height:var(--size);
+      border-radius:50%;
+      /* subtle vignette */
+      box-shadow: inset 0 30px 80px rgba(0,0,0,0.6);
+    }
+
+    /* STARS */
+    .star{
+      position:absolute;
+      width:2px;
+      height:2px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.95);
+      opacity:0.6;
+      filter:drop-shadow(0 0 4px rgba(255,255,255,0.2));
+      animation: twinkle var(--t, 2s) infinite ease-in-out;
+    }
+    @keyframes twinkle{
+      0%{opacity:0.2; transform: scale(0.8)}
+      50%{opacity:1; transform: scale(1.2)}
+      100%{opacity:0.2; transform: scale(0.8)}
+    }
+
+    /* SUN (center) */
+    .sun{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:120px;
+      height:120px;
+      transform: translate(-50%,-50%);
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff59d 0%, #ffcc33 20%, #ff7a00 60%, #b33 100%);
+      box-shadow:
+        0 0 40px rgba(255,170,60,0.9),
+        0 0 120px rgba(255,120,20,0.6),
+        0 0 220px rgba(255,80,0,0.15);
+      z-index:4;
+    }
+
+    /* ORBITS */
+    .earth-orbit, .moon-orbit{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      border-radius:50%;
+      pointer-events: none;
+    }
+    .earth-orbit{
+      width:360px;
+      height:360px;
+      border:1px dashed rgba(255,255,255,0.08);
+      z-index:1;
+    }
+    .moon-orbit{
+      width:110px;
+      height:110px;
+      border:1px dashed rgba(255,255,255,0.06);
+      z-index:2;
+    }
+
+    /* PLANETS */
+    .earth{
+      position:absolute;
+      /* place at top of its orbit so rotating the orbit will create circular motion */
+      top:0;
+      left:50%;
+      transform: translate(-50%,-50%);
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #9fe7ff 0%, #2a9bd6 40%, #063a52 100%);
+      box-shadow: 0 0 18px rgba(34,170,255,0.35);
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .moon{
+      position:absolute;
+      top:0;
+      left:50%;
+      transform: translate(-50%,-50%);
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #cfcfcf 40%, #9d9d9d 100%);
+      box-shadow: 0 0 8px rgba(255,255,255,0.12);
+      z-index:5;
+    }
+
+    /* small glow ring under earth for style */
+    .earth::after{
+      content:"";
+      position:absolute;
+      inset: -6px;
+      border-radius:50%;
+      box-shadow: 0 0 30px rgba(10,120,200,0.08);
+      z-index:-1;
+    }
+
+    /* responsive smaller screens */
+    @media (max-width:640px){
+      :root{--size:360px}
+      .sun{width:90px;height:90px}
+      .earth-orbit{width:220px;height:220px}
+      .earth{width:42px;height:42px}
+      .moon-orbit{width:80px;height:80px}
+      .moon{width:12px;height:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="universe">
+
+    <!-- some stars (static positions) -->
+    <div class="star" style="top:6%; left:12%; --t:2.6s;"></div>
+    <div class="star" style="top:10%; left:78%; --t:1.8s;"></div>
+    <div class="star" style="top:22%; left:45%; --t:2.2s;"></div>
+    <div class="star" style="top:30%; left:10%; --t:3.2s;"></div>
+    <div class="star" style="top:36%; left:80%; --t:4.0s;"></div>
+    <div class="star" style="top:50%; left:85%; --t:3.6s;"></div>
+    <div class="star" style="top:64%; left:70%; --t:2.8s;"></div>
+    <div class="star" style="top:76%; left:22%; --t:3.1s;"></div>
+    <div class="star" style="top:82%; left:56%; --t:2.0s;"></div>
+    <div class="star" style="top:12%; left:34%; --t:1.4s;"></div>
+    <div class="star" style="top:44%; left:6%; --t:2.9s;"></div>
+    <div class="star" style="top:70%; left:40%; --t:3.8s;"></div>
+
+    <div class="sun"></div>
+
+    <!-- Earth orbit: rotate this to move Earth around Sun -->
+    <div class="earth-orbit">
+      <div class="earth">
+        <!-- Moon orbit is inside Earth so it moves with Earth; rotate moon-orbit to revolve Moon -->
+        <div class="moon-orbit">
+          <div class="moon"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Earth revolves around Sun
+    gsap.to(".earth-orbit", {
+      rotation: 360,
+      duration: 12,      // one full orbit time (seconds) — change to speed up/slow down
+      ease: "none",
+      repeat: -1,
+      transformOrigin: "50% 50%"
+    });
+
+    // Moon revolves around Earth (centered inside .earth)
+    gsap.to(".moon-orbit", {
+      rotation: 360,
+      duration: 3,       // moon orbital period relative to earth
+      ease: "none",
+      repeat: -1,
+      transformOrigin: "50% 50%"
+    });
+
+    // Sun subtle pulsing glow
+    gsap.to(".sun", {
+      scale: 1.06,
+      duration: 1.6,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+
+    // Earth's own spin
+    gsap.to(".earth", {
+      rotation: 360,
+      duration: 4,
+      ease: "none",
+      repeat: -1,
+      transformOrigin: "50% 50%"
+    });
+
+    // tiny moon spin (optional)
+    gsap.to(".moon", {
+      rotation: 360,
+      duration: 2.5,
+      ease: "none",
+      repeat: -1,
+      transformOrigin: "50% 50%"
+    });
+  </script>
+</body>
+</html>
