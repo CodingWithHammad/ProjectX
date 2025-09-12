@@ -27,8 +27,8 @@
     justify-content: space-between;
     /* margin: 0px 5vw; */
     align-items: center;
-    /* margin-right: 40px; */
-    /* margin-bottom: 20px; */
+    margin-right: 40px;
+    margin-bottom: 20px;
     background-color: rgb(20, 20, 19);
     color: orange;
     font-weight: 600;
