@@ -99,4 +99,24 @@
         color: white;
     }
 </style>
+
+
+  <div id="time">00:00:00</div>
+  <div>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+  </div>
+  <script>
+    let sec=0, timer=null;
+    function update(){ 
+      let h = String(Math.floor(sec/3600)).padStart(2,'0');
+      let m = String(Math.floor((sec%3600)/60)).padStart(2,'0');
+      let s = String(sec%60).padStart(2,'0');
+      document.getElementById("time").innerText = h+":"+m+":"+s;
+    }
+    function start(){ if(timer) return; timer=setInterval(()=>{sec++;update();},1000); }
+    function stop(){ clearInterval(timer); timer=null; }
+    function reset(){ sec=0; update(); stop(); }
+  </script> 
 </html>
